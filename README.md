@@ -24,3 +24,8 @@ docker compose up -d
 ### Run APP on Windows
 ```bash
 .\mvnw spring-boot:run
+
+## API Documentation
+
+Swagger UI:
+http://localhost:8080/swagger-ui.html
