@@ -1,4 +1,4 @@
-package com.example.crm;
+/*package com.example.crm;
 
 import org.springframework.boot.SpringApplication;
 
@@ -9,3 +9,5 @@ public class TestCrmApplication {
 	}
 
 }
+
+ */

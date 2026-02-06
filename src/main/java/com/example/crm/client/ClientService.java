@@ -2,6 +2,7 @@ package com.example.crm.client;
 
 import com.example.crm.client.dto.ClientCreateRequest;
 import com.example.crm.client.dto.ClientResponse;
+import com.example.crm.client.dto.ClientUpdateRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -51,6 +52,37 @@ public class ClientService {
                 entity.getCompanyName(),
                 entity.getStatus().name(),
                 entity.getCreatedAt()
+        );
+    }
+
+    public ClientResponse update(Long id, ClientUpdateRequest request) {
+        ClientEntity entity = findEntity(id);
+
+        entity.setName(request.getName());
+        entity.setEmail(request.getEmail());
+        entity.setCompanyName(request.getCompanyName());
+
+        return map(repository.save(entity));
+    }
+
+    public void delete(Long id) {
+        ClientEntity entity = findEntity(id);
+        repository.delete(entity);
+    }
+
+    private ClientEntity findEntity(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Client not found"));
+    }
+
+    private ClientResponse map(ClientEntity e) {
+        return new ClientResponse(
+                e.getId(),
+                e.getName(),
+                e.getEmail(),
+                e.getCompanyName(),
+                e.getStatus().name(),
+                e.getCreatedAt()
         );
     }
 }

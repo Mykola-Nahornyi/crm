@@ -2,7 +2,10 @@ package com.example.crm.client;
 
 import com.example.crm.client.dto.ClientCreateRequest;
 import com.example.crm.client.dto.ClientResponse;
+import com.example.crm.client.dto.ClientUpdateRequest;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,5 +34,20 @@ public class ClientController {
     @GetMapping
     public List<ClientResponse> getAll() {
         return service.getAll();
+    }
+
+    @PutMapping("/{id}")
+    public ClientResponse update(
+            @PathVariable Long id,
+            @
+                    Valid @RequestBody ClientUpdateRequest request
+    ) {
+        return service.update(id, request);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
     }
 }

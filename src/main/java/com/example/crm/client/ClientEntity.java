@@ -58,4 +58,16 @@ public class ClientEntity {
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
+
+    public void setName(Object name) {
+        this.name = name.toString();
+    }
+
+    public void setEmail(Object email) {
+        this.email = email.toString();
+    }
+
+    public void setCompanyName(Object companyName) {
+        this.companyName = companyName.toString();
+    }
 }
