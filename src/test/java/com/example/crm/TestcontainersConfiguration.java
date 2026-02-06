@@ -1,4 +1,4 @@
-package com.example.crm;
+/*package com.example.crm;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
@@ -16,3 +16,6 @@ class TestcontainersConfiguration {
 	}
 
 }
+
+
+ */
